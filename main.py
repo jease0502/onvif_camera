@@ -2,11 +2,13 @@ import cv2
 import datetime
 import os
 
+from parameter import Paramenter as param
+
 class Camera(object):
-    def __init__(self, ip, save_dir = 'videos',record_duration = 10 * 60):
-        self.ip = ip
-        self.save_dir = save_dir
-        self.record_duration = record_duration
+    def __init__(self):
+        self.ip = param.ip
+        self.save_dir = param.save_dir
+        self.record_duration = param.record_duration
         
     def record(self):
         # Define the codec and create VideoWriter object
@@ -66,5 +68,5 @@ class Camera(object):
 
 
 if __name__ == '__main__':
-    camera = Camera("rtsp://admin:123456@192.168.1.105:554/profile1" , "videos" , record_duration=10*60)
+    camera = Camera()
     camera.record()
